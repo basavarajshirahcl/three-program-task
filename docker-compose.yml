@@ -1,0 +1,17 @@
+version: '3'
+services:
+  current-time-app:
+    image: current-time-app:1
+    build: ./current-time/
+    ports:
+      - '5000:5000'
+  employe-list-app:
+    image: employe-list-app:1
+    build: ./employe-list/
+    ports:
+      - '5001:5001'
+  employe-search-app:
+    image: employe-search-app:1
+    build: ./employe-search/
+    ports:
+      - '5002:5002'
