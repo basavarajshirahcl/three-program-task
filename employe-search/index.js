@@ -8,6 +8,12 @@ app.get('/', (req, res) => {
     res.send(`${new Date()} Second`);
 });
 
+/**
+ * Search employee from file 
+ * @param {any} req
+ * @param {any} res
+ * @returns {object} success or error
+ */
 app.get("/search/:id", (req, res) => {
     try {
         if (fs.existsSync('./../data.json')) {
@@ -25,6 +31,13 @@ app.get("/search/:id", (req, res) => {
         return res.send('Unable to find employee.');
     }
 })
+
+/**
+ * List employee from file 
+ * @param {any} req
+ * @param {any} res
+ * @returns {object} success or error
+ */
 app.get("/list", (req, res) => {
     try {
         if (fs.existsSync('./../data.json')) {
@@ -39,6 +52,7 @@ app.get("/list", (req, res) => {
     }
 })
 
+//server listing on 5002 port
 app.listen(5002, () => {
     console.log('Listing on 5002');
 });
