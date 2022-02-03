@@ -5,10 +5,22 @@ const fs = require('fs');
 app.set('view engine', 'ejs');
 app.use(express.json(), express.urlencoded({ extended: true }));
 
+/**
+ * Redirect to dashboard
+ * @param {any} req
+ * @param {any} res
+ * @returns {null}
+ */
 app.get('/dashboard', (req, res) => {
     res.render('dashboard', {});
 });
 
+/**
+ * Add employee to file 
+ * @param {any} req
+ * @param {any} res
+ * @returns {object} success or error
+ */
 app.post('/add-employe', (req, res) => {
     try {
         if (fs.existsSync('./../data.json')) {
@@ -32,6 +44,12 @@ app.post('/add-employe', (req, res) => {
     }
 });
 
+/**
+ * List employee from file 
+ * @param {any} req
+ * @param {any} res
+ * @returns {object} success or error
+ */
 app.get("/", (req, res) => {
     let xml = fs.readFileSync('./../dataxml.xml', 'utf8');
     console.log(xml)
